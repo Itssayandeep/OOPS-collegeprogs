@@ -5,24 +5,25 @@ class Vehicle
 {
 protected:
     string name;
-    double mileage;
+    double distance;
+    double fuel;
 
 public:
     void input()
     {
-        cout << "Enter The Name :-" << endl;
+        cout << "Enter The Name : ";
         cin >> name;
-        cout << "Enter The Mileage :-" << endl;
-        cin >> mileage;
+        cout << "Enter The Distance(in km) : ";
+        cin >> distance;
+        cout << "Enter The Fuel(in L) : ";
+        cin >> fuel;
     }
-
     void displayDetails()
     {
         cout << "Name Is : " << name << endl;
-        cout << "Mileage Is : " << mileage << "km" << endl;
+        cout << "Mileage Is : " << distance / fuel << "km" << endl;
     }
 };
-
 class TwoWheeler : public Vehicle
 {
 private:
@@ -33,12 +34,11 @@ public:
     {
         Vehicle ::input();
         Vehicle ::displayDetails();
-        cout << "Enter The price Of Two Wheeler:- " << endl;
+        cout << "Enter The price Of Two Wheeler: ";
         cin >> price;
-        cout << "The Price Of Two Wheeler Is :- " << price << endl;
+        cout << "The Price Of Two Wheeler Is : " << price << endl;
     }
 };
-
 class FourWheeler : public Vehicle
 {
 private:
@@ -49,9 +49,9 @@ public:
     {
         Vehicle ::input();
         Vehicle ::displayDetails();
-        cout << " Enter The price Of Four Wheeler:- " << endl;
+        cout << "Enter The price Of Four Wheeler : ";
         cin >> cost;
-        cout << "The Price of Four Wheeler is :- " << cost << endl;
+        cout << "The Price of Four Wheeler is : " << cost << endl;
     }
 };
 int main()
@@ -59,17 +59,23 @@ int main()
     TwoWheeler obj1;
     FourWheeler obj2;
     int choice;
-    cout << " Enter 1 for TwoWheeler or 2 for FourWheeler:- ";
-    cin >> choice;
-    switch (choice)
+    while (1)
     {
-    case 1:
-        obj1.bike();
-        break;
-    case 2:
-        obj2.car();
-    default:
-        cout << "Invalid Choice" << endl;
-        return 0;
+        cout << "1 for Two Wheeler \n2 for Four Wheeler\nEnter choice : ";
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            obj1.bike();
+            break;
+        case 2:
+            obj2.car();
+            break;
+        default:
+            cout << "Invalid Choice... Enter again\n"
+                 << endl;
+            break;
+        }
     }
+    return 0;
 }
