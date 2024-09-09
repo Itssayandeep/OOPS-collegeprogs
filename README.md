@@ -1,1 +1,1 @@
-oops collge programs are uploaded
+oops college programs are uploaded
